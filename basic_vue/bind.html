@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- "v-bind:" 를 통해 바인드 할 수 있고 ":" 만 써도 된다.  -->
+    <div id="app">
+        <p>이름 : {{person.name}}</p> 
+        <p>나이 : {{person.age}}</p>
+        <p>{{nextYear("안녕하세요")}}</p>
+        <p>{{otherMethod("안녕하세요")}}</p>
+        <input :type=type :value=inputData>
+        <p><a :href=getLink("eastshine94")>링크크크크크</a></p>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+                person: {
+                    name: "홍길동",
+                    age: 34
+                },
+                inputData: "hello",
+                type: "text",
+                link: "https://github.com/"
+            },
+            methods: {
+                getLink(link){
+                    return this.link + link;
+                },
+                nextYear(greeting) {
+                    return greeting + "!  " +  this.person.name + "은 내년에 " + (this.person.age + 1) + "살 입니다.";
+                },
+                otherMethod(){
+                    return this.nextYear("안녕");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
