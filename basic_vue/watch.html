@@ -29,6 +29,7 @@
                     return this.msg.split("").reverse().join("");
                 }
             },
+            //변화를 감지하여 action을 취함 => computed로 안되면 watch로 해결하라
             watch: {
                 //data에 msg를 살펴본다.
                 msg(newVal, oldVal) {
