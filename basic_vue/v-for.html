@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- in, of 둘 다 똑같음 -->
+        <div v-for="(person,index) of people" :key="person.id">
+            <p>{{index}} :  {{person.name}}은 {{person.age}}살 입니다.</p>
+        </div>
+    </div>
+    <script>
+         new Vue({
+            el:"#app",
+            data: {
+               people : [
+                {id: 1, name: "a", age:20},
+                {id: 2, name: "b", age:24},
+                {id: 3, name: "c", age:18},
+                {id: 4, name: "d", age:30},
+               ],
+            },
+            methods:{
+                
+            },
+    
+            
+        })
+    </script>
+</body>
+</html>
