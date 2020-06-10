@@ -1,16 +1,26 @@
 <template>
   <div class="home">
-    <h1>This is Home page</h1>
-    <Name/>
+    <Name title ="This is Home page"/>
+    <form>
+      <InputField v-model="name"/>
+      <br><button>Submit</button>
+    </form>
+    <p>{{name}}</p>
   </div>
 </template>
 
-<script>
-import Name from "@/components/Name.vue";
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Name from '@/components/Name.vue'
+import InputField from '@/components/InputField.vue'
+@Component({
   components: {
-    Name
-  },
+    Name,
+    InputField
+  }
+})
+export default class Home extends Vue {
+  name = ''
 }
 </script>
 <style>
