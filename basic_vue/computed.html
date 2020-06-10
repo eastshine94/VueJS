@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        computed는 캐싱을 하고, methods는 캐싱을 하지 않음
+        즉, computed는 한 번 계산하면 이를 다시 사용하므로, 다음 번에 사용할 때는 계산할 필요가 없지만, methods를 사용하면 할 때마다 계산을 하게 된다.
+
+    -->
+    <div id="app">
+        <button @click = "changeMessage">Click</button>
+        <p>{{reverseMessage}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+               msg: "안녕하세요",
+            },
+            methods:{
+                changeMessage(){
+                    this.msg = "바뀌었다!!";
+                }
+            },
+            computed: {
+                reverseMessage() {
+                    return this.msg.split("").reverse().join("");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
