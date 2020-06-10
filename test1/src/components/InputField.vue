@@ -14,7 +14,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class InputField extends Vue {
-    @Prop({ type: String, required: true }) private name!: string;
+    @Prop({ type: String, required: false }) private name!: string;
     updatedName (e: Event) {
       const element = e.target as HTMLInputElement
       const value = element.value

@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Name title ="This is Home page"/>
+    <h1>This is Home page</h1>
     <form>
       <InputField v-model="name"/>
-      <br><button>Submit</button>
+      <br><button @click.prevent ="updateName">Submit</button>
     </form>
     <p>{{name}}</p>
   </div>
@@ -11,16 +11,51 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Name from '@/components/Name.vue'
+
 import InputField from '@/components/InputField.vue'
 @Component({
   components: {
-    Name,
     InputField
   }
 })
 export default class Home extends Vue {
-  name = ''
+  name = 'teeee'
+  updateName () {
+    this.name = 'change Name'
+  }
+
+  beforeCreate () {
+    console.log('beforeCreate', this.name)
+  }
+
+  created () {
+    console.log('created', this.name)
+  }
+
+  beforeMount () {
+    alert('beforeMount')
+  }
+
+  // dom 컨트롤하고 싶을 때 여기서
+  mounted () {
+    alert('Mount')
+  }
+
+  beforeUpdate () {
+    alert('beforeUpdate')
+  }
+
+  updated () {
+    alert('updated')
+  }
+
+  beforeDestroy () {
+    alert('beforeDestroy')
+  }
+
+  destroyed () {
+    alert('destroyed')
+  }
 }
 </script>
 <style>
