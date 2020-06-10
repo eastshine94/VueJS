@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Way Binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <form v-on:submit.prevent="submit">
+            <input type="text" :value=text v-on:keyup=updateText>
+            <p>{{text}}</p>
+
+            <!--v-model을 쓰면 위 코드랑 같은 효과를 냄-->
+            <input type="text" v-model=text2>
+            <p>{{text2}}</p>
+            <button>Submit</button>
+        </form>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+                text: "text",
+                text2: "text2"
+            },
+            methods:{
+                submit(event){ 
+                    alert("submitted");
+                    console.log("hello");
+                },
+                updateText(e){
+                    this.text = e.target.value
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
