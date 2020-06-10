@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- "v-on:"을 통하여 click 이벤트를 컨트롤함  -->
+    <!-- ".prevent"를 해주면 preventDefault()가 된다. -->
+    <div id="app">
+        <p>{{year}}</p>
+        <button v-on:click=plus>더하기</button>
+        <button v-on:click=minus>빼기</button>
+        <form v-on:submit.prevent="submit">
+            <input type="text"><br>
+            <button>Submit</button>
+        </form>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+                year:2010
+            },
+            methods:{
+                plus(){
+                    this.year++;
+                },
+                minus(){
+                    this.year--;
+                },
+                submit(event){
+        
+                    alert("submitted");
+                    console.log("hello");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
