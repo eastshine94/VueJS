@@ -4,7 +4,7 @@
     <AddTodo/>
     <hr/>
     <TodoList/>
-   
+    <UserList/>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 import { Component,Vue } from 'vue-property-decorator';
 import TodoList from "@/components/TodoList.vue";
 import AddTodo from "@/components/AddTodo.vue";
+import UserList from '@/components/UserList.vue';
 interface TodoDto {
   id: number;
   text: string;
@@ -21,7 +22,8 @@ interface TodoDto {
 @Component({
   components:{
     TodoList,
-    AddTodo
+    AddTodo,
+    UserList
   }
 })
 export default class App extends Vue{

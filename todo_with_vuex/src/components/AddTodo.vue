@@ -11,7 +11,12 @@ export default class AddTodo extends Vue {
         const element: HTMLInputElement = e.target as HTMLInputElement
         const value: string = element.value;
         element.value= "";
-        this.$store.commit('ADD_TODO',value);
+        
+        //mutation
+        //this.$store.commit('ADD_TODO',value);
+        
+        //action
+        this.$store.dispatch('addTodo', value);
     }
         
 }

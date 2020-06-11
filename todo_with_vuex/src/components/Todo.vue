@@ -24,15 +24,18 @@
         toggleCheckbox(e: Event){
             const element: HTMLInputElement = e.target as HTMLInputElement;
             const value: boolean = element.checked;
-            this.$store.commit('TOGGLE_TODO', {
-                id: this.todo.id,
-                checked: value 
-            });
+            // this.$store.commit('TOGGLE_TODO', {
+            //     id: this.todo.id,
+            //     checked: value 
+            // });
+
+            this.$store.dispatch('toggleTodo',{id:this.todo.id, checked:value});
         }
         clickDelete(){
-            this.$store.commit('DELETE_TODO', {
-                id: this.todo.id,
-            });
+            // this.$store.commit('DELETE_TODO', {
+            //     id: this.todo.id,
+            // });
+            this.$store.dispatch('deleteTodo',this.todo.id);
         }
     }
 </script>
