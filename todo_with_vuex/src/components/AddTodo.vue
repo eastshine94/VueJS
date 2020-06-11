@@ -3,15 +3,16 @@
 </template>
 
 <script lang="ts">
-export default {
-    methods:{
-        addTodo(e: Event): void {
-            const element: HTMLInputElement = e.target as HTMLInputElement
-            const value: string = element.value;
-            element.value= "";
-            this.$emit('add-todo', value);
-            
-        }
-    }    
+import { Vue, Component } from 'vue-property-decorator';
+@Component
+export default class AddTodo extends Vue {
+    
+    addTodo(e: Event): void {
+        const element: HTMLInputElement = e.target as HTMLInputElement
+        const value: string = element.value;
+        element.value= "";
+        this.$store.commit('ADD_TODO',value);
+    }
+        
 }
 </script>

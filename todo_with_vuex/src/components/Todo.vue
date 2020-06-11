@@ -24,13 +24,13 @@
         toggleCheckbox(e: Event){
             const element: HTMLInputElement = e.target as HTMLInputElement;
             const value: boolean = element.checked;
-            this.$emit(`toggle-checkbox`, {
+            this.$store.commit('TOGGLE_TODO', {
                 id: this.todo.id,
                 checked: value 
             });
         }
         clickDelete(){
-            this.$emit('click-delete', {
+            this.$store.commit('DELETE_TODO', {
                 id: this.todo.id,
             });
         }

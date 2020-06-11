@@ -5,8 +5,6 @@
             v-for="todo in todos"  
             :key="todo.id"
             :todo="todo"
-            @toggle-checkbox="toggleCheckbox"
-            @click-delete="clickDelete"
         />
     </div>
   
@@ -14,7 +12,7 @@
 
 <script lang="ts">
 import Todo from '@/components/Todo.vue';
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 
 interface TodoDto {
   id: number;
@@ -30,12 +28,6 @@ interface TodoDto {
 export default class TodoList extends Vue {
     todos = this.$store.state.todos;
 
-    toggleCheckbox(value: TodoDto){
-        this.$emit('toggle-checkbox', value);
-    }
-    clickDelete(todoId: number){
-        this.$emit('click-delete',todoId);
-    }
 }
 </script>
 

@@ -1,12 +1,9 @@
 <template>
   <div id="app" class="container">
     <h1 class="text-center">Todo App</h1>  
-    <AddTodo @add-todo = "addTodo"/>
+    <AddTodo/>
     <hr/>
-    <TodoList 
-      @toggle-checkbox="toggleCheckbox"
-      @click-delete="deleteTodo"
-    />
+    <TodoList/>
    
   </div>
 </template>
@@ -29,22 +26,6 @@ interface TodoDto {
 })
 export default class App extends Vue{
   
-  
-  addTodo(value: string): void {
-    this.todos.push({
-      id: this.todos.length+1,
-      text:value,
-      checked: false,
-    });
 
-  }
-  toggleCheckbox({id, checked}: TodoDto): void {
-      const index = this.todos.findIndex(todo => todo.id === id);
-      this.todos[index].checked = checked;
-  }
-  deleteTodo({id}: TodoDto): void {
-    const index = this.todos.findIndex(todo => todo.id === id);
-    this.todos.splice(index, 1);
-  }
 }
 </script>
