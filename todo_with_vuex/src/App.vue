@@ -4,7 +4,6 @@
     <AddTodo @add-todo = "addTodo"/>
     <hr/>
     <TodoList 
-      :todos="todos"
       @toggle-checkbox="toggleCheckbox"
       @click-delete="deleteTodo"
     />
@@ -30,10 +29,7 @@ interface TodoDto {
 })
 export default class App extends Vue{
   
-  todos: Array<TodoDto>= [
-    {id:1 ,text: 'buy a car', checked: false},
-    {id:2 ,text: 'play game', checked: false}
-  ]
+  
   addTodo(value: string): void {
     this.todos.push({
       id: this.todos.length+1,
