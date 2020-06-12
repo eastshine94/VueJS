@@ -16,7 +16,7 @@ export default class AddTodo extends Vue {
         //this.$store.commit('ADD_TODO',value);
         
         //action
-        this.$store.dispatch('addTodo', value);
+        this.$store.dispatch('todo/addTodo', value);
     }
         
 }

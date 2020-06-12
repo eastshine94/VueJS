@@ -26,8 +26,7 @@ interface TodoDto {
     }
 })
 export default class TodoList extends Vue {
-    todos = this.$store.state.todos;
-
+    todos = this.$store.state.todo.todos;
 }
 </script>
 

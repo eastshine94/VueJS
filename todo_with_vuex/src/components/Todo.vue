@@ -29,13 +29,13 @@
             //     checked: value 
             // });
 
-            this.$store.dispatch('toggleTodo',{id:this.todo.id, checked:value});
+            this.$store.dispatch('todo/toggleTodo',{id:this.todo.id, checked:value});
         }
         clickDelete(){
             // this.$store.commit('DELETE_TODO', {
             //     id: this.todo.id,
             // });
-            this.$store.dispatch('deleteTodo',this.todo.id);
+            this.$store.dispatch('todo/deleteTodo',this.todo.id);
         }
     }
 </script>

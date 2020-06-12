@@ -13,13 +13,17 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class UserList extends Vue {
-    users = this.$store.state.users;
+
+    get users() {
+        return this.$store.state.user.users;
+    }
     
     created() {
         this.getUsers();
     }
+    
     getUsers() {
-        this.$store.dispatch("getUsers");
+        this.$store.dispatch("user/getUsers");
     }
     
 }
